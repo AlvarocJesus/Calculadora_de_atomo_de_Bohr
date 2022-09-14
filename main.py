@@ -46,26 +46,34 @@ def emiteAbsorveAtomo(ni, nf):
     print(f'Energia do Fotón: {energiaFoton}\nComprimento de onda do fóton: {comprimentoF}\nFrequência: {freq}')
 
 def absorveAtomo(i,n,j,fc):
-    energia=0
-
     if (i == 1):
         # Conta para n inicial
         if (j == 1):
             # Conta para frequencia
             energia = h * fc
+            energiaFinal = (-13.6/(n**2)) + energia
+            nf = sqrt((13.6/energiaFinal))
+            print(f'Numero quântico final: {nf}')
         else:
             # Conta para comprimento de onda
             energia = (h*c)/fc
+            energiaFinal = (-13.6/(n**2)) + energia
+            nf = sqrt((13.6/energiaFinal))
+            print(f'Numero quântico final: {nf}')
     else:
         # Conta para n final
         if (j == 1):
             # Conta para frequencia
             energia = h * fc
+            energiaFinal = (-13.6/(n**2)) - energia
+            nf = sqrt((13.6/energiaFinal))
+            print(f'Numero quântico inicial: {nf}')
         else:
             # Conta para comprimento de onda
             energia = (h*c)/fc
-
-    print(f'Numero quantico: {n}')
+            energiaFinal = (-13.6/(n**2)) - energia
+            nf = sqrt((13.6/energiaFinal))
+            print(f'Numero quântico inicial: {nf}')
 
 while True:
   print("\n-----------------Menu-----------------")
