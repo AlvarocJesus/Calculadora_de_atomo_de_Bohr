@@ -25,9 +25,9 @@ print('')
 
 def message():
   input("""
-------------------------------
+-------------------------------------------
 Digite ENTER para continuar com os cálculos
-------------------------------
+-------------------------------------------
 """)
 
 
@@ -39,7 +39,7 @@ def propriedadesAtomo(n):
   energia = -13.6/(n**2)  # energia total
   comprimento = h/(v*mE)  # comprimento de onda de uma partícula
 
-  print(f'Raio: {r:.3}\nVelocidade: {v:.3}\nComprimento de onda: {comprimento:.3}\nEnergia Cinética: {k:.3}\nEnergia Potencial: {u:.3}\nEnergia Total: {energia:.3}')
+  print(f'\nRaio: {r:.3} m\nVelocidade: {v:.3} m/s\nComprimento de onda: {comprimento:.3} m\nEnergia Cinética: {k:.3} eV\nEnergia Potencial: {u:.3} eV\nEnergia Total: {energia:.3} eV')
 
 
 def emiteAbsorveAtomo(ni, nf):
@@ -48,7 +48,7 @@ def emiteAbsorveAtomo(ni, nf):
   comprimentoF = c/freq
 
   print(
-    f'Energia do Fotón: {energiaFoton:.3}\nComprimento de onda do fóton: {comprimentoF:.3}\nFrequência: {freq:.3}')
+    f'\nEnergia do Fotón: {energiaFoton:.3} eV\nComprimento de onda do fóton: {comprimentoF:.3} m\nFrequência: {freq:.3} Hz')
 
 
 def absorveAtomo(i, n, j, fc):
@@ -60,13 +60,13 @@ def absorveAtomo(i, n, j, fc):
       energiaFinal = (-13.6/(n**2)) + energiaFoton
       divisao = (13.6/abs(energiaFinal))
       nf = sqrt(divisao)
-      print(f'Numero quântico final: {nf:.3}')
+      print(f'\nNumero quântico final: {nf:.3}')
     else:
       # Conta para comprimento de onda
       energiaFoton = (h*c)/fc
       energiaFinal = (-13.6/(n**2)) + energiaFoton
       nf = sqrt(13.6/abs(energiaFinal))
-      print(f'Numero quântico final: {nf:.3}')
+      print(f'\nNumero quântico final: {nf:.3}')
   else:
     # Conta para n final
     if (j == 1):
@@ -74,13 +74,13 @@ def absorveAtomo(i, n, j, fc):
       energiaFoton = h * fc
       energiaFinal = (-13.6/(n**2)) - energiaFoton
       nf = sqrt((13.6/abs(energiaFinal)))
-      print(f'Numero quântico inicial: {nf:.3}')
+      print(f'\nNumero quântico inicial: {nf:.3}')
     else:
       # Conta para comprimento de onda
       energiaFoton = (h*c)/fc
       energiaFinal = (-13.6/(n**2)) - energiaFoton
       nf = sqrt((13.6/abs(energiaFinal)))
-      print(f'Numero quântico inicial: {nf:.3}')
+      print(f'\nNumero quântico inicial: {nf:.3}')
 
 def emiteAtomo(i, n, j, fc):
   if (i == 1):
@@ -88,35 +88,35 @@ def emiteAtomo(i, n, j, fc):
     if (j == 1):
       # Conta para frequencia
       energia = h * fc
-      print(f'Numero quântico inicial: {energia}')
+      print(f'\nNumero quântico inicial: {energia}')
       energiaFinal = (-13.6/(n**2)) + energia
-      print(f'Numero quântico inicial: {energiaFinal}')
+      print(f'\nNumero quântico inicial: {energiaFinal}')
       nf = sqrt((13.6/abs(energiaFinal)))
-      print(f'Numero quântico final: {nf:.3}')
+      print(f'\nNumero quântico final: {nf:.3}')
     else:
       # Conta para comprimento de onda
       energia = (h*c)/fc
       energiaFinal = (-13.6/(n**2)) - energia
       nf = sqrt((13.6/abs(energiaFinal)))
-      print(f'Numero quântico final: {nf:.3}')
+      print(f'\nNumero quântico final: {nf:.3}')
   else:
     # Conta para n final
     if (j == 1):
       # Conta para frequencia
       energia = h * fc
-      print(f'Numero quântico inicial: {energia}')
+      print(f'\nNumero quântico inicial: {energia}')
       energiaFinal = (-13.6/(n**2)) - energia
-      print(f'Numero quântico inicial: {energiaFinal}')
+      print(f'\nNumero quântico inicial: {energiaFinal}')
       nf = sqrt((13.6/abs(energiaFinal)))
-      print(f'Numero quântico inicial: {nf:.3}')
+      print(f'\nNumero quântico inicial: {nf:.3}')
     else:
       # Conta para comprimento de onda
       energia = (h*c)/fc
-      print(f'Numero quântico inicial: {energia}')
+      print(f'\nNumero quântico inicial: {energia}')
       energiaFinal = (-13.6/(n**2)) + energia
-      print(f'Numero quântico inicial: {energiaFinal}')
+      print(f'\nNumero quântico inicial: {energiaFinal}')
       nf = sqrt((13.6/abs(energiaFinal)))
-      print(f'Numero quântico inicial: {nf:.3}')
+      print(f'\nNumero quântico inicial: {nf:.3}')
 
 while True:
   print("\n-----------------Menu-----------------")
@@ -144,30 +144,32 @@ while True:
     emiteAbsorveAtomo(ni, nf)
     message()
   elif option == 3:
-    print("""Informe se irá utilizar o frequência ou comprimento de onda do fóton:
+    print("""Informe se irá utilizar número quântico inicial ou final:
 1 - Numero quântico inicial
 2 - Numero quântico final
 """)
     i = int(input("Opção de entrada desejada: "))
     n = int(input('Digite o valor do numero quântico: '))
-    print("""Informe se irá utilizar o frequência ou comprimento de onda do fóton:
-1 - Frequência
-2 - Comprimento""")
+    print("""\nInforme se irá utilizar o frequência ou comprimento de onda do fóton:
+1 - Frequência [Hz]
+2 - Comprimento [m]
+""")
     j = int(input("Opção de entrada desejada: "))
     fc = float(input("Digite o valor: "))
 
     absorveAtomo(i, n, j, fc)
     message()
   elif option == 4:
-    print("""Informe se irá utilizar o frequência ou comprimento de onda do fóton:
-1 - Numero quântico inicial
-2 - Numero quântico final
+    print("""Informe se irá utilizar o número quântico inicial ou final:
+1 - Número quântico inicial
+2 - Número quântico final
 """)
     i = int(input("Opção de entrada desejada: "))
     n = int(input('Digite o valor do numero quântico: '))
-    print("""Informe se irá utilizar o frequência ou comprimento de onda do fóton:
-1 - Frequência
-2 - Comprimento""")
+    print("""\nInforme se irá utilizar o frequência ou comprimento de onda do fóton:
+1 - Frequência [Hz]
+2 - Comprimento [m]
+""")
     j = int(input("Opção de entrada desejada: "))
     fc = float(input("Digite o valor: "))
 
