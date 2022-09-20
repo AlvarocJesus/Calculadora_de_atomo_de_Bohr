@@ -31,7 +31,6 @@ Digite ENTER para continuar com os cálculos
 -------------------------------------------
 """)
 
-
 def propriedadesAtomo(n):
   r = (n**2)*(5.29e-11)  # raio da órbita de ordem n
   v = (1/el)*((e**2)/(2*n*hJoule))  # velocidade orbital
@@ -41,7 +40,6 @@ def propriedadesAtomo(n):
   comprimento = hJoule/(v*mE)  # comprimento de onda de uma partícula
 
   print(f'\nRaio: {r:.3} m\nVelocidade: {v:.3} m/s\nComprimento de onda: {comprimento:.3} m\nEnergia Cinética: {k:.3} eV\nEnergia Potencial: {u:.3} eV\nEnergia Total: {energia:.3} eV')
-
 
 def emiteAbsorveAtomo( ni, nf):
   energiaNInicial = (-13.6/(ni**2))
@@ -53,7 +51,6 @@ def emiteAbsorveAtomo( ni, nf):
 
   print(
     f'\nEnergia do Fotón: {energiaFoton:.4} eV\nComprimento de onda do fóton: {comprimentoF:.4} m\nFrequência: {freq:.4} Hz')
-
 
 def absorveAtomo(i, n, j, fc):
   if (i == 1):
@@ -92,9 +89,7 @@ def emiteAtomo(i, n, j, fc):
     if (j == 1):
       # Conta para frequencia
       energia = h * fc
-      print(f'\nNumero quântico inicial: {energia}')
-      energiaFinal = (-13.6/(n**2)) + energia
-      print(f'\nNumero quântico inicial: {energiaFinal}')
+      energiaFinal = (-13.6/(n**2)) - energia
       nf = sqrt((13.6/abs(energiaFinal)))
       print(f'\nNumero quântico final: {nf:.3}')
     else:
@@ -114,11 +109,8 @@ def emiteAtomo(i, n, j, fc):
     else:
       # Conta para comprimento de onda
       energia = (h*c)/fc
-      print(f'\nNumero quântico inicial: {energia}')
       energiaFinal = (-13.6/(n**2)) + energia
-      print(f'\nNumero quântico inicial: {energiaFinal}')
       nf = sqrt((13.6/abs(energiaFinal)))
-      print(f'\nNumero quântico inicial: {nf:.3}')
 
 while True:
   print("\n-----------------Menu-----------------")
