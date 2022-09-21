@@ -22,9 +22,9 @@ Vinicius Alves Pedro 22.221.036-1
 
 # Exibe descrição do projeto:
 print("""
-Este código na linguagem Python realiza
+Este código na linguagem Python realiza as propriedades do átomo de hidrogênio para níveis específicos de energia e entre níveis específicos de energia. E calcular o nível quântico quando se tem o nível inicial ou final e a frequência ou o comprimento de onda do fóton que esta sendo absorvido ou emitido durante a transição.
 
-Series do Hidrogenio:
+Series do Hidrogênio:
 Lyman => n_Final = 1 e n_Inicial > 1.
 Balmer => n_Final = 2 e n_Inicial > 2.
 Paschen => n_Final = 3 e n_Inicial > 3.
