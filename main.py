@@ -5,8 +5,8 @@ from math import sqrt
 from time import sleep
 
 
-h = 4.136e-15  # Constante de planck (eV)
-hJoule = 6.6262e-34  # Constante de planck (J.s)
+h = 4.136e-15  # Constante de planck (eV*s)
+hJoule = 6.6262e-34  # Constante de planck (J*s)
 c = 3e8  # Velocidade da luz (m/s)
 el = 8.854e-12  # Constante dielétrica (C^2/(N*(m^2)))
 e = -1.602e-19  # Carga do elétron (C)
@@ -22,14 +22,15 @@ Vinicius Alves Pedro 22.221.036-1
 
 # Exibe descrição do projeto:
 print("""
-Este código na linguagem Python realiza as propriedades do átomo de hidrogênio para níveis específicos de energia e entre níveis específicos de energia. E calcular o nível quântico quando se tem o nível inicial ou final e a frequência ou o comprimento de onda do fóton que esta sendo absorvido ou emitido durante a transição.
+Este código na linguagem Python explora as propriedades dos níveis específicos de energia do átomo de hidrogênio.
+Calcula o nível quântico quando se tem o nível inicial ou final, a frequência, o comprimento de onda do fóton que está sendo absorvido ou emitido durante a transição.
 
 Series do Hidrogênio:
-Lyman => n_Final = 1 e n_Inicial > 1.
-Balmer => n_Final = 2 e n_Inicial > 2.
-Paschen => n_Final = 3 e n_Inicial > 3.
-Brackett => n_Final = 4 e n_Inicial > 4.
-Pfund => n_Final = 5 e n_Inicial > 5.3
+Lyman => n_Final = 1 e n_Inicial > 1
+Balmer => n_Final = 2 e n_Inicial > 2
+Paschen => n_Final = 3 e n_Inicial > 3
+Brackett => n_Final = 4 e n_Inicial > 4
+Pfund => n_Final = 5 e n_Inicial > 5
 """)
 
 
@@ -46,7 +47,7 @@ def propriedadesAtomo(n):
   k = 13.6/(n**2)  # energia cinética
   u = -27.2/(n**2)  # energia potencial
   energia = -13.6/(n**2)  # energia total
-  comprimento = hJoule/(v*mE)  # comprimento de onda de uma partícula
+  comprimento = abs(hJoule/(v*mE))  # comprimento de onda de uma partícula
 
   print(f'\nRaio: {r:.3} m\nVelocidade: {v:.3} m/s\nComprimento de onda: {comprimento:.3} m\nEnergia Cinética: {k:.3} eV\nEnergia Potencial: {u:.3} eV\nEnergia Total: {energia:.3} eV')
 
@@ -55,7 +56,7 @@ def emiteAbsorveAtomo( ni, nf):
   energiaNFinal = (-13.6/((nf**2)))
 
   energiaFoton = energiaNFinal- energiaNInicial
-  freq = energiaFoton / h
+  freq = abs(energiaFoton / h)
   comprimentoF = c/freq
 
   print(
@@ -70,13 +71,13 @@ def absorveAtomo(i, n, j, fc):
       energiaFinal = (-13.6/(n**2)) + energiaFoton
       divisao = (13.6/abs(energiaFinal))
       nf = sqrt(divisao)
-      print(f'\nNumero quântico final: {nf:.3}')
+      print(f'\nN° quântico final: {nf:.3}')
     else:
       # Conta para comprimento de onda
       energiaFoton = (h*c)/fc
       energiaFinal = (-13.6/(n**2)) + energiaFoton
       nf = sqrt(13.6/abs(energiaFinal))
-      print(f'\nNumero quântico final: {nf:.3}')
+      print(f'\nN° quântico final: {nf:.3}')
   else:
     # Conta para n final
     if (j == 1):
@@ -84,13 +85,13 @@ def absorveAtomo(i, n, j, fc):
       energiaFoton = h * fc
       energiaFinal = (-13.6/(n**2)) - energiaFoton
       nf = sqrt((13.6/abs(energiaFinal)))
-      print(f'\nNumero quântico inicial: {nf:.3}')
+      print(f'\nN° quântico inicial: {nf:.3}')
     else:
       # Conta para comprimento de onda
       energiaFoton = (h*c)/fc
       energiaFinal = (-13.6/(n**2)) - energiaFoton
       nf = sqrt((13.6/abs(energiaFinal)))
-      print(f'\nNumero quântico inicial: {nf:.3}')
+      print(f'\nN° quântico inicial: {nf:.3}')
 
 def emiteAtomo(i, n, j, fc):
   if (i == 1):
@@ -100,13 +101,13 @@ def emiteAtomo(i, n, j, fc):
       energia = h * fc
       energiaFinal = (-13.6/(n**2)) - energia
       nf = sqrt((13.6/abs(energiaFinal)))
-      print(f'\nNumero quântico final: {nf:.3}')
+      print(f'\nN° quântico final: {nf:.3}')
     else:
       # Conta para comprimento de onda
       energia = (h*c)/fc
       energiaFinal = (-13.6/(n**2)) - energia
       nf = sqrt((13.6/abs(energiaFinal)))
-      print(f'\nNumero quântico final: {nf:.3}')
+      print(f'\nN° quântico final: {nf:.3}')
   else:
     # Conta para n final
     if (j == 1):
@@ -114,7 +115,7 @@ def emiteAtomo(i, n, j, fc):
       energia = h * fc
       energiaFinal = (-13.6/(n**2)) + energia
       nf = sqrt((13.6/abs(energiaFinal)))
-      print(f'\nNumero quântico inicial: {nf:.3}')
+      print(f'\nN° quântico inicial: {nf:.3}')
     else:
       # Conta para comprimento de onda
       energia = (h*c)/fc
@@ -123,11 +124,12 @@ def emiteAtomo(i, n, j, fc):
 
 while True:
   print("\n-----------------Menu-----------------")
-  print("""Indique a sua entrada:
-1 - Propriedades do átomo de Hidrogênio
-2 - Número quântico inicial e final (Emissão/Absorção de fóton)
+  print("""Indique o seu cálculo:
+1 - Propriedades do átomo de Hidrogênio 
+2 - Energia / Comprimento de Onda / Frequência (Emissão/Absorção de fóton)
 3 - Absorção de fóton pelo Hidrogênio
 4 - Emissão de fóton pelo Hidrogênio
+
 0 - Sair
   """)
   option = int(input())
@@ -148,8 +150,8 @@ while True:
     message()
   elif option == 3:
     print("""Informe se irá utilizar número quântico inicial ou final:
-1 - Numero quântico inicial
-2 - Numero quântico final
+1 - N° quântico inicial
+2 - N° quântico final
 """)
     i = int(input("Opção de entrada desejada: "))
     n = int(input('Digite o valor do numero quântico: '))
@@ -164,8 +166,8 @@ while True:
     message()
   elif option == 4:
     print("""Informe se irá utilizar o número quântico inicial ou final:
-1 - Número quântico inicial
-2 - Número quântico final
+1 - N° quântico inicial
+2 - N° quântico final
 """)
     i = int(input("Opção de entrada desejada: "))
     n = int(input('Digite o valor do numero quântico: '))
