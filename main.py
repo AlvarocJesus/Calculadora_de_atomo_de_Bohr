@@ -22,8 +22,11 @@ Vinicius Alves Pedro 22.221.036-1
 
 # Exibe descrição do projeto:
 print("""
-Este código desenvolvido na linguagem Python explora as propriedades dos níveis específicos de energia do átomo de hidrogênio. Para a utilização do programa, primeiramente deve-se escolher entre as opções mostradas, respondendo com o número correspondente ao cálculo desejado, e então as entradas requeridas, que variam de acordo com a opção.
-Desse modo, o programa é capaz de calcular o nível quântico (a partir do nível inicial ou final), a frequência, e o comprimento de onda do fóton que está sendo absorvido ou emitido durante a transição.
+Este código desenvolvido na linguagem Python explora as propriedades dos níveis específicos de energia do átomo de hidrogênio. 
+Para a utilização do programa, primeiramente deve-se escolher entre as opções mostradas, respondendo com o número correspondente 
+ao cálculo desejado, e então as entradas requeridas, que variam de acordo com a opção. Desse modo, o programa é capaz de calcular 
+o nível quântico (a partir do nível inicial ou final), a frequência, e o comprimento de onda do fóton que está sendo absorvido 
+ou emitido durante a transição.
 
 Series do Hidrogênio:
 Lyman => n° Final = 1 e n° Inicial > 1
