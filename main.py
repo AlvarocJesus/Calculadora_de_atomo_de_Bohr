@@ -21,7 +21,16 @@ Vinicius Alves Pedro 22.221.036-1
 """)
 
 # Exibe descrição do projeto:
-print('')
+print("""
+Este código na linguagem Python realiza
+
+Series do Hidrogenio:
+Lyman => n_Final = 1 e n_Inicial > 1.
+Balmer => n_Final = 2 e n_Inicial > 2.
+Paschen => n_Final = 3 e n_Inicial > 3.
+Brackett => n_Final = 4 e n_Inicial > 4.
+Pfund => n_Final = 5 e n_Inicial > 5.3
+""")
 
 
 def message():
@@ -116,7 +125,7 @@ while True:
   print("\n-----------------Menu-----------------")
   print("""Indique a sua entrada:
 1 - Propriedades do átomo de Hidrogênio
-2 - Emissão/Absorção de fóton pelo Hidrogênio
+2 - Número quântico inicial e final (Emissão/Absorção de fóton)
 3 - Absorção de fóton pelo Hidrogênio
 4 - Emissão de fóton pelo Hidrogênio
 0 - Sair
