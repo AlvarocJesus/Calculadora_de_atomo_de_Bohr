@@ -124,6 +124,7 @@ def emiteAtomo(i, n, j, fc):
       energia = (h*c)/fc
       energiaFinal = (-13.6/(n**2)) + energia
       nf = sqrt((13.6/abs(energiaFinal)))
+      print(f'\nN° quântico inicial: {nf:.3}')
 
 while True:
   print("\n-----------------Menu-----------------")
